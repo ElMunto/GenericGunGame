@@ -1,0 +1,55 @@
+title: Beep
+tags:
+position: -53,2
+---
+<<enablePortrait PlayerInDialogueBehaviour>>
+Beep: Welcome to the tutorial friend!
+Beep: You can roll Left and Right by pressing A and D.
+Beep: Press the Spacebar to fire. Go ahead and fire off a round see how far you can get. 
+-> Where do I go?
+    <<jump ReachTheExit>>
+-> ok ...
+Beep: Good luck !
+<<disablePortrait PlayerInDialogueBehaviour>>
+===
+
+title: Reloading
+position: 63,-177
+---
+<<enablePortrait PlayerInDialogueBehaviour>>
+
+Beep: You just picked up more ammo !
+Beep: You can see how much ammo you have in the top right of the screen.
+Beep: You can Reload by pressing R.
+-> How can reload without any hands?
+Beep: Best not to ask haha.. 
+<<disablePortrait PlayerInDialogueBehaviour>>
+===
+title: BreakingBottles
+position: -219,-150
+---
+<<enablePortrait PlayerInDialogueBehaviour>>
+Beep: Find and break all the bottles on each level.
+-> why??
+Beep: I just really like the sound they make !
+<<disablePortrait PlayerInDialogueBehaviour>>
+===
+title: SlowMode
+position: -246,170
+---
+<<enablePortrait PlayerInDialogueBehaviour>>
+Beep: You can slow down time for a few seconds by pressing E. 
+Beep: This will give you some time to line up that perfect shot !
+<<disablePortrait PlayerInDialogueBehaviour>>
+===
+
+// Add Camera pan here??
+title: ReachTheExit
+position: 136,176
+---
+<<LookAtExit CameraPanManager>>
+<<enablePortrait PlayerInDialogueBehaviour>>
+Beep: Reach the Exit to escape the Level.
+<<LookAtPlayer CameraPanManager>>
+<<disablePortrait PlayerInDialogueBehaviour>>
+===
