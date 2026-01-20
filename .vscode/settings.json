@@ -1,0 +1,4 @@
+{
+    "dotnet.defaultSolution": "Generic-Gun-Game.sln",
+    "dotnet.preferCSharpExtension": true
+}
