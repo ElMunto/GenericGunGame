@@ -365,6 +365,7 @@ MonoBehaviour:
   _maxUpAssist: 30
   _smokeLength: 0.5
   _maxY: 20
+  nudgePower: 0.5
   currentClip: 10
   maxClipSize: 10
   currentAmmo: 100
@@ -513,15 +514,15 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: dbfe5c59-0105-4566-a559-e9e94a5f4c16
-    m_ActionName: UI1/Navigate[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/rightStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/leftStick/right,/XInputControllerWindows/rightStick/right,/XInputControllerWindows/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+    m_ActionName: UI1/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 88d36af2-ae70-4ac9-95e2-69f5c45c91c1
-    m_ActionName: UI1/Submit[/Keyboard/enter,/XInputControllerWindows/buttonSouth]
+    m_ActionName: UI1/Submit[/Keyboard/enter]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 7193091b-ea24-4307-aa18-0f1a3b6f4376
-    m_ActionName: UI1/Cancel[/Keyboard/escape,/XInputControllerWindows/buttonEast]
+    m_ActionName: UI1/Cancel[/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: d2e84b44-b517-43e8-8fbb-c3da591e368b
@@ -579,6 +580,7 @@ MonoBehaviour:
   cooldownTime: 5
   slowDownFactor: 0.04
   slowdownLength: 3
+  refillSpeed: 0.5
 --- !u!114 &2828507042662744853
 MonoBehaviour:
   m_ObjectHideFlags: 0
