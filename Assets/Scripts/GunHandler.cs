@@ -141,15 +141,15 @@ public class GunHandler : MonoBehaviour
     public void NudgeRight()
     {
         if (IsPaused || IsInDialogue) return;
-        Vector3 nudgeDir = new Vector3(-transform.up.y, transform.up.x, 0).normalized;
+        Vector3 nudgeDir = Vector3.right;
         _rb.AddForce(nudgeDir * nudgePower, ForceMode.Impulse);
     }
 
     public void NudgeLeft()
     {
         if (IsPaused || IsInDialogue) return;
-        Vector3 nudgeDir = new Vector3(-transform.up.y, transform.up.x, 0).normalized;
-        _rb.AddForce(-nudgeDir * nudgePower, ForceMode.Impulse);
+        Vector3 nudgeDir = Vector3.left;
+        _rb.AddForce(nudgeDir * nudgePower, ForceMode.Impulse);
     }
 
     public void ContinueDialogue(InputAction.CallbackContext context)
