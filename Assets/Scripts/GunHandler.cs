@@ -37,6 +37,10 @@ public class GunHandler : MonoBehaviour
     private float _lastFired;
     private bool _fire;
 
+    // For banking velocity during dialogue
+    private Vector3 _storedVelocity = Vector3.zero;
+    private Vector3 _storedAngularVelocity = Vector3.zero;
+
     public bool IsPaused { get; set; } = false;
 
     // Constraints setup
@@ -55,6 +59,26 @@ public class GunHandler : MonoBehaviour
             if (_isInDialogue != value)
             {
                 _isInDialogue = value;
+                if (_isInDialogue)
+                {
+                    // Bank velocities and freeze
+                    if (_rb != null)
+                    {
+                        _storedVelocity = _rb.velocity;
+                        _storedAngularVelocity = _rb.angularVelocity;
+                        _rb.velocity = Vector3.zero;
+                        _rb.angularVelocity = Vector3.zero;
+                    }
+                }
+                else
+                {
+                    // Restore velocities
+                    if (_rb != null)
+                    {
+                        _rb.velocity = _storedVelocity;
+                        _rb.angularVelocity = _storedAngularVelocity;
+                    }
+                }
                 UpdateConstraints();
             }
         }

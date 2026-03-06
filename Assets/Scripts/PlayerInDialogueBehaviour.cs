@@ -11,13 +11,12 @@ public class PlayerInDialogueBehaviour : MonoBehaviour
     public Image image;
     public DialogueRunner dialogueRunner;
 
-    private GunHandler gunHandler;
+    [SerializeField] public GunHandler gunHandler;
 
     private void Start()
     {
-        gunHandler = GetComponent<GunHandler>();
         if (gunHandler == null)
-            Debug.LogWarning("GunHandler not found on this GameObject!");
+            Debug.LogWarning("GunHandler not found in parent hierarchy!");
 
         // Subscribe to dialogue events
         if (dialogueRunner != null)
