@@ -48,11 +48,16 @@ public class AudioManager : MonoBehaviour
         AudioSource audioSource = soundObject.AddComponent<AudioSource>();
         audioSource.clip = soundSO.Clip;
         audioSource.Play();
+
+        if (!audioSource.loop && audioSource.clip != null)
+        {
+            Destroy(soundObject, audioSource.clip.length);
+        }
     }
 
     private void Gun_OnShoot()
     {
-        PlaySound(_gunShoot);       
+        PlaySound(_gunShoot);
     }
 
     private void Bottle_OnSmashed()
