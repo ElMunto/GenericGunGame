@@ -13,6 +13,7 @@ public class GunHandler : MonoBehaviour
 
     [SerializeField] private Bullet _bulletPrefab;
     [SerializeField] private Transform _spawnPoint;
+        [SerializeField] private float dialogueStopDuration = 0.5f; // Duration to smoothly stop when entering dialogue
     [SerializeField] private ParticleSystem _smokeSystem;
     [SerializeField] private LayerMask _targetLayer;
 
@@ -61,13 +62,13 @@ public class GunHandler : MonoBehaviour
                 _isInDialogue = value;
                 if (_isInDialogue)
                 {
-                    // Bank velocities and freeze
+                    // Bank velocities and start smooth stop
                     if (_rb != null)
                     {
                         _storedVelocity = _rb.velocity;
                         _storedAngularVelocity = _rb.angularVelocity;
-                        _rb.velocity = Vector3.zero;
-                        _rb.angularVelocity = Vector3.zero;
+                        StopAllCoroutines();
+                        StartCoroutine(SmoothStopCoroutine(dialogueStopDuration));
                     }
                 }
                 else
@@ -90,6 +91,28 @@ public class GunHandler : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         UpdateConstraints();
     }
+    private IEnumerator SmoothStopCoroutine(float duration)
+    {
+        if (_rb == null) yield break;
+        Vector3 initialVelocity = _rb.velocity;
+        Vector3 initialAngularVelocity = _rb.angularVelocity;
+        Vector3 initialPosition = _rb.position;
+        Vector3 targetPosition = _rb.position + initialVelocity * duration;
+        float timer = 0f;
+        while (timer < duration)
+        {
+            float t = timer / duration;
+            _rb.velocity = Vector3.Lerp(initialVelocity, Vector3.zero, t);
+            _rb.angularVelocity = Vector3.Lerp(initialAngularVelocity, Vector3.zero, t);
+            Vector3 nextPosition = Vector3.Lerp(initialPosition, targetPosition, t);
+            _rb.MovePosition(nextPosition);
+            timer += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+        _rb.velocity = Vector3.zero;
+        _rb.angularVelocity = Vector3.zero;
+        _rb.MovePosition(targetPosition);
+    }
 
     private void UpdateConstraints()
     {
@@ -97,8 +120,7 @@ public class GunHandler : MonoBehaviour
         if (_isInDialogue)
         {
             _rb.constraints = dialogueConstraints;
-            _rb.velocity = Vector3.zero;
-            _rb.angularVelocity = Vector3.zero;
+            // Do not immediately zero velocity/angVel here; SmoothStopCoroutine handles gradual stop
         }
         else
         {
