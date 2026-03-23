@@ -13,7 +13,8 @@ public class GunHandler : MonoBehaviour
 
     [SerializeField] private Bullet _bulletPrefab;
     [SerializeField] private Transform _spawnPoint;
-        [SerializeField] private float dialogueStopDuration = 0.5f; // Duration to smoothly stop when entering dialogue
+    [SerializeField] private Transform _respawnPoint;
+    [SerializeField] private float dialogueStopDuration = 0.5f; // Duration to smoothly stop when entering dialogue
     [SerializeField] private ParticleSystem _smokeSystem;
     [SerializeField] private LayerMask _targetLayer;
 
@@ -227,9 +228,18 @@ public class GunHandler : MonoBehaviour
         }
     }
 
-    public void RestartLevel()
+    public void RestartLevel(InputAction.CallbackContext context)
     {
-        Fader fade = FindFirstObjectByType<Fader>();
-        fade.FadeInAndOut();
+        if (IsPaused || IsInDialogue) return;
+        if (context.performed)
+        {
+            if (_rb != null && _respawnPoint != null)
+            {
+                _rb.position = _respawnPoint.position;
+                _rb.velocity = Vector3.zero;
+                _rb.angularVelocity = Vector3.zero;
+                Debug.Log("Restart button held (InputSystem interaction). Player moved to spawn point.");
+            }
+        }
     }
 }
