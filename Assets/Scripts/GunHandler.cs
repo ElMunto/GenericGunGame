@@ -8,7 +8,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GunHandler : MonoBehaviour
+
 {
+
+    [SerializeField] private float reloadDuration = 0.2f; // Duration to disable firing during reload
+    private bool _isReloading = false;
+    private float _lastReloaded = -1f;
+
     public static Action OnShoot;
 
     [SerializeField] private Bullet _bulletPrefab;
@@ -151,33 +157,27 @@ public class GunHandler : MonoBehaviour
 
     public void Fire(InputAction.CallbackContext context)
     {
-        if (IsPaused || IsInDialogue) return;
+        if (IsPaused || IsInDialogue || _isReloading) return;
         if (context.performed)
         {
             if (currentClip > 0)
             {
                 var hitsTarget = Physics.Raycast(_spawnPoint.position, _spawnPoint.forward, float.PositiveInfinity, _targetLayer);
-
                 var bullet = Instantiate(_bulletPrefab, _spawnPoint.position, _spawnPoint.rotation);
                 bullet.Init(_spawnPoint.forward * _bulletSpeed, hitsTarget);
                 _smokeSystem.Play();
                 _lastFired = Time.time;
-
                 var assistPoint = Mathf.InverseLerp(0, _maxY, _rb.position.y);
                 var assistAmount = Mathf.Lerp(_maxUpAssist, 0, assistPoint);
                 var forceDir = -transform.forward * _forceAmount + Vector3.up * assistAmount;
                 if (_rb.position.y > _maxY) forceDir.y = Mathf.Min(0, forceDir.y);
                 _rb.AddForce(forceDir);
-
                 var angularPoint = Mathf.InverseLerp(0, _maxAngularVelocity, Mathf.Abs(_rb.angularVelocity.z));
                 var amount = Mathf.Lerp(0, _maxTorqueBonus, angularPoint);
                 var torque = _torque + amount;
-
                 var dir = Vector3.Dot(_spawnPoint.forward, Vector3.right) < 0 ? Vector3.back : Vector3.forward;
                 _rb.AddTorque(dir * torque);
-
                 currentClip--;
-
                 OnShoot.Invoke();
             }
         }
@@ -212,12 +212,28 @@ public class GunHandler : MonoBehaviour
 
     public void Reload()
     {
+        if (_isReloading) return;
+        if (Time.time - _lastReloaded < reloadDuration) return;
+        if (currentClip == maxClipSize || currentAmmo == 0) return;
+        StartCoroutine(ReloadCoroutine());
+    }
+
+    private IEnumerator ReloadCoroutine()
+    {
+        _isReloading = true;
+        Debug.Log("Reload started");
+        // Play reload sound
+        AudioManager.OnReload?.Invoke();
+        yield return new WaitForSeconds(reloadDuration);
         int reloadAmount = maxClipSize - currentClip;
         reloadAmount = (currentAmmo - reloadAmount) >= 0 ? reloadAmount : currentAmmo;
         currentClip += reloadAmount;
         currentAmmo -= reloadAmount;
-        Debug.Log("Reload");
+        Debug.Log("Reload finished");
+        _lastReloaded = Time.time;
+        _isReloading = false;
     }
+
 
     public void AddAmmo(int ammoAmount)
     {

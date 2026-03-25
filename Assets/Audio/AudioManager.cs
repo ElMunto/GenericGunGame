@@ -12,6 +12,9 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private SoundSO _bottleBreak;
 
+    [SerializeField] private SoundSO _gunReload;
+    public static System.Action OnReload;
+
     private void Start()
     {
         if (PlayerPrefs.HasKey("Master"))
@@ -34,12 +37,14 @@ public class AudioManager : MonoBehaviour
     {
         GunHandler.OnShoot += Gun_OnShoot;
         Bottle.OnSmashed += Bottle_OnSmashed;
+        OnReload += Gun_OnReload;
     }
 
     private void OnDisable()
     {
         GunHandler.OnShoot -= Gun_OnShoot;
         Bottle.OnSmashed -= Bottle_OnSmashed;
+        OnReload -= Gun_OnReload;
     }
 
     private void PlaySound(SoundSO soundSO)
@@ -63,6 +68,11 @@ public class AudioManager : MonoBehaviour
     private void Bottle_OnSmashed()
     {
         PlaySound(_bottleBreak);
+    }
+
+    private void Gun_OnReload()
+    {
+        PlaySound(_gunReload);
     }
 }
 
