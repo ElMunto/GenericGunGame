@@ -351,8 +351,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4369f4e88815a1d45847c18735f009ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reloadDuration: 0.2
   _bulletPrefab: {fileID: 4135369425613691960, guid: ccb67930d488b834aaacf0bc7149a9b9, type: 3}
   _spawnPoint: {fileID: 6634052550722469961}
+  _respawnPoint: {fileID: 0}
+  dialogueStopDuration: 0.15
   _smokeSystem: {fileID: 19871838, guid: 9ee0b4127c0de0946a3f0ad60894a811, type: 3}
   _targetLayer:
     serializedVersion: 2
@@ -492,7 +495,19 @@ MonoBehaviour:
     m_ActionId: 50fb3f19-d100-437c-b32e-4a53fb4eeda9
     m_ActionName: Player/Nudge Right[/XInputControllerWindows1/leftStick/left,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2585017843928362434}
+        m_TargetAssemblyTypeName: GunHandler, Assembly-CSharp
+        m_MethodName: RestartLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 2d6fe68f-de5c-4387-9355-86e8d6ae6a92
     m_ActionName: Player/Restart Level[/XInputControllerWindows1/buttonNorth,/Keyboard/f]
   - m_PersistentCalls:
@@ -647,7 +662,7 @@ MonoBehaviour:
     m_DissipationMode: 2
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
-  m_DefaultVelocity: {x: 0.1, y: 0.05, z: 0}
+  m_DefaultVelocity: {x: 0.15, y: 0.15, z: 0}
 --- !u!114 &3351805324655639619
 MonoBehaviour:
   m_ObjectHideFlags: 0
