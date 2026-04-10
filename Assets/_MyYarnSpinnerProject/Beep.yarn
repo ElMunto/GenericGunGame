@@ -9,6 +9,7 @@ Beep: Press the Spacebar to fire. Go ahead and fire off a round see how far you 
 -> Where do I go?
     <<jump ReachTheExit>>
 -> ok ...
+Beep: If you get stuck just hold the "F" button to go back to the start.
 Beep: Good luck !
 <<disablePortrait PlayerInDialogueBehaviour>>
 ===
