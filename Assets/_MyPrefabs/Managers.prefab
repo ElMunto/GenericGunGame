@@ -327,6 +327,8 @@ MonoBehaviour:
   _gunShoot: {fileID: 11400000, guid: 544f18dc4870ec446adaa9968b8068a1, type: 2}
   _bottleBreak: {fileID: 11400000, guid: b4bd89ce7a4e90a4eb7b42ddd3a7d30e, type: 2}
   _gunReload: {fileID: 11400000, guid: 1d6c689fcd7a248418f730c1a6ce2b1a, type: 2}
+  _uiHighlight: {fileID: 11400000, guid: 299edf55a438a9f488d74889e444ad2a, type: 2}
+  _uiClick: {fileID: 0}
 --- !u!1 &8761424256329963944
 GameObject:
   m_ObjectHideFlags: 0
