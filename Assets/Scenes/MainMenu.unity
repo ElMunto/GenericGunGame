@@ -2579,7 +2579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.408081, y: -0.00012207031}
+  m_AnchoredPosition: {x: -1.4082031, y: -0.00012207031}
   m_SizeDelta: {x: 47.8734, y: 50.6893}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &854792941
@@ -3443,6 +3443,7 @@ MonoBehaviour:
   - {fileID: 1936318639}
   - {fileID: 1720814608}
   - {fileID: 1515122787}
+  _mainMenuMusic: {fileID: 11400000, guid: fa19d64dc20bd7b44bd557cb8d24f653, type: 2}
 --- !u!4 &1052658647 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4510483257539040, guid: 7e140394e95da314a9a63645d1c4a08f, type: 3}
@@ -4119,6 +4120,7 @@ MonoBehaviour:
   - {fileID: 1936318639}
   - {fileID: 1720814608}
   - {fileID: 1515122787}
+  _mainMenuMusic: {fileID: 0}
 --- !u!1 &1181462432
 GameObject:
   m_ObjectHideFlags: 0
@@ -6996,9 +6998,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1381649711390031003, guid: 3c8b9bba8c83c6c4590bd2b8d5d15634, type: 3}
+      propertyPath: _gunShoot
+      value: 
+      objectReference: {fileID: 11400000, guid: 544f18dc4870ec446adaa9968b8068a1, type: 2}
+    - target: {fileID: 1381649711390031003, guid: 3c8b9bba8c83c6c4590bd2b8d5d15634, type: 3}
+      propertyPath: _gunReload
+      value: 
+      objectReference: {fileID: 11400000, guid: 1d6c689fcd7a248418f730c1a6ce2b1a, type: 2}
+    - target: {fileID: 1381649711390031003, guid: 3c8b9bba8c83c6c4590bd2b8d5d15634, type: 3}
+      propertyPath: _bottleBreak
+      value: 
+      objectReference: {fileID: 11400000, guid: b4bd89ce7a4e90a4eb7b42ddd3a7d30e, type: 2}
+    - target: {fileID: 1381649711390031003, guid: 3c8b9bba8c83c6c4590bd2b8d5d15634, type: 3}
       propertyPath: _uiHighlight
       value: 
       objectReference: {fileID: 11400000, guid: 299edf55a438a9f488d74889e444ad2a, type: 2}
+    - target: {fileID: 1381649711390031003, guid: 3c8b9bba8c83c6c4590bd2b8d5d15634, type: 3}
+      propertyPath: _mainMenuMusic
+      value: 
+      objectReference: {fileID: 11400000, guid: fa19d64dc20bd7b44bd557cb8d24f653, type: 2}
     - target: {fileID: 3395765319755767124, guid: 3c8b9bba8c83c6c4590bd2b8d5d15634, type: 3}
       propertyPath: m_Name
       value: AudioManager

@@ -7,15 +7,26 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
+
     public Button[] buttons;
+
+    [Header("Music")]
+    [SerializeField] private SoundSO _mainMenuMusic;
+    private AudioManager _audioManager;
 
     //public GameObject loadingScreen;
     //public TextMeshProUGUI loadingText;
 
 
+
     private void Start()
     {
         Time.timeScale = 1;
+        _audioManager = FindObjectOfType<AudioManager>();
+        if (_audioManager != null && _mainMenuMusic != null)
+        {
+            _audioManager.PlayMusic(_mainMenuMusic);
+        }
     }
 
     private void Awake()
@@ -33,6 +44,10 @@ public class MainMenu : MonoBehaviour
 
     public void OpenLevel(int levelId)
     {
+        if (_audioManager != null)
+        {
+            _audioManager.StopMusic();
+        }
         string levelName = "Level " + levelId;
         SceneManager.LoadScene(levelName);
     }

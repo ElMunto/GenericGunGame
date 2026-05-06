@@ -17,6 +17,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private SoundSO _uiHighlight;
     [SerializeField] private SoundSO _uiClick;
 
+
+    [Header("Music")]
+    [SerializeField] private SoundSO _mainMenuMusic;
+    private AudioSource _musicSource;
+
     public static System.Action OnReload;
 
     private void Start()
@@ -34,6 +39,35 @@ public class AudioManager : MonoBehaviour
         if (PlayerPrefs.HasKey("SFX"))
         {
             theMixer.SetFloat("SFX", PlayerPrefs.GetFloat("SFX"));
+        }
+    }
+
+    public void PlayMusic(SoundSO musicSO)
+    {
+        if (_musicSource != null)
+        {
+            if (_musicSource.clip == musicSO.Clip && _musicSource.isPlaying)
+                return; // Already playing
+            _musicSource.Stop();
+            Destroy(_musicSource.gameObject);
+        }
+        GameObject musicObject = new GameObject("Music Audio Source");
+        _musicSource = musicObject.AddComponent<AudioSource>();
+        _musicSource.clip = musicSO.Clip;
+        _musicSource.loop = true;
+        _musicSource.volume = musicSO.Volume;
+        _musicSource.pitch = musicSO.Pitch;
+        _musicSource.Play();
+        DontDestroyOnLoad(musicObject);
+    }
+
+    public void StopMusic()
+    {
+        if (_musicSource != null)
+        {
+            _musicSource.Stop();
+            Destroy(_musicSource.gameObject);
+            _musicSource = null;
         }
     }
 
