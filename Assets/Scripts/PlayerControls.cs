@@ -162,6 +162,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Laser Pointer"",
+                    ""type"": ""Button"",
+                    ""id"": ""779d9006-35b3-4f95-afe5-785b1381e2f5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -327,6 +336,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""GamePad"",
                     ""action"": ""Continue Dialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5e06e155-b30d-467c-b224-12cb14f968d1"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""Laser Pointer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b72fe9ac-0b95-412d-b03e-ed9f30ac2274"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Laser Pointer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -889,6 +920,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_NudgeLeft = m_Player.FindAction("Nudge Left", throwIfNotFound: true);
         m_Player_NudgeRight = m_Player.FindAction("Nudge Right", throwIfNotFound: true);
         m_Player_RestartLevel = m_Player.FindAction("Restart Level", throwIfNotFound: true);
+        m_Player_LaserPointer = m_Player.FindAction("Laser Pointer", throwIfNotFound: true);
         // UI1
         m_UI1 = asset.FindActionMap("UI1", throwIfNotFound: true);
         m_UI1_Navigate = m_UI1.FindAction("Navigate", throwIfNotFound: true);
@@ -990,6 +1022,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_NudgeLeft;
     private readonly InputAction m_Player_NudgeRight;
     private readonly InputAction m_Player_RestartLevel;
+    private readonly InputAction m_Player_LaserPointer;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1033,6 +1066,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/RestartLevel".
         /// </summary>
         public InputAction @RestartLevel => m_Wrapper.m_Player_RestartLevel;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/LaserPointer".
+        /// </summary>
+        public InputAction @LaserPointer => m_Wrapper.m_Player_LaserPointer;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1083,6 +1120,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @RestartLevel.started += instance.OnRestartLevel;
             @RestartLevel.performed += instance.OnRestartLevel;
             @RestartLevel.canceled += instance.OnRestartLevel;
+            @LaserPointer.started += instance.OnLaserPointer;
+            @LaserPointer.performed += instance.OnLaserPointer;
+            @LaserPointer.canceled += instance.OnLaserPointer;
         }
 
         /// <summary>
@@ -1118,6 +1158,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @RestartLevel.started -= instance.OnRestartLevel;
             @RestartLevel.performed -= instance.OnRestartLevel;
             @RestartLevel.canceled -= instance.OnRestartLevel;
+            @LaserPointer.started -= instance.OnLaserPointer;
+            @LaserPointer.performed -= instance.OnLaserPointer;
+            @LaserPointer.canceled -= instance.OnLaserPointer;
         }
 
         /// <summary>
@@ -1435,6 +1478,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRestartLevel(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Laser Pointer" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnLaserPointer(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI1" which allows adding and removing callbacks.

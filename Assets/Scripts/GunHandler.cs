@@ -38,6 +38,8 @@ public class GunHandler : MonoBehaviour
     [SerializeField] private float _maxY = 10;
     [SerializeField] private float nudgePower = 0.5f;
 
+    [SerializeField] private GameObject laserPointer;
+
     public int currentClip, maxClipSize = 10, currentAmmo, maxAmmoSize = 100;
 
     private CinemachineImpulseSource _impulseSource;
@@ -98,6 +100,7 @@ public class GunHandler : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         UpdateConstraints();
     }
+    
     private IEnumerator SmoothStopCoroutine(float duration)
     {
         if (_rb == null) yield break;
@@ -183,7 +186,11 @@ public class GunHandler : MonoBehaviour
         }
     }
 
-    // Fix Nudge or scrap
+    public void LaserPointer (InputAction.CallbackContext context)  {
+        // toggle gameobject on and off
+        laserPointer.SetActive(!laserPointer.activeSelf); 
+    }
+
 
     public void NudgeRight()
     {
