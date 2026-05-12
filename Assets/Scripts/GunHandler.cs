@@ -166,7 +166,8 @@ public class GunHandler : MonoBehaviour
             if (currentClip > 0)
             {
                 var hitsTarget = Physics.Raycast(_spawnPoint.position, _spawnPoint.forward, float.PositiveInfinity, _targetLayer);
-                var bullet = Instantiate(_bulletPrefab, _spawnPoint.position, _spawnPoint.rotation);
+                // Use LookRotation to align bullet with spawnPoint's forward
+                var bullet = Instantiate(_bulletPrefab, _spawnPoint.position, Quaternion.LookRotation(_spawnPoint.up));
                 bullet.Init(_spawnPoint.forward * _bulletSpeed, hitsTarget);
                 _smokeSystem.Play();
                 _lastFired = Time.time;
