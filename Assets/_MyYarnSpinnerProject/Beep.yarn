@@ -41,6 +41,7 @@ position: -246,170
 <<enablePortrait PlayerInDialogueBehaviour>>
 Beep: You can slow down time for a few seconds by pressing E. 
 Beep: This will give you some time to line up that perfect shot !
+Beep: You Can also toggle the Laser Pointer using X.
 <<disablePortrait PlayerInDialogueBehaviour>>
 ===
 
