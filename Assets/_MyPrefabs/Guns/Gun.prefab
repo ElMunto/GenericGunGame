@@ -327,7 +327,7 @@ Transform:
   m_GameObject: {fileID: 7123106032034663295}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.09, z: 0.348}
+  m_LocalPosition: {x: -0, y: 0.09, z: 0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -714,7 +714,19 @@ MonoBehaviour:
     m_ActionId: a4a6845e-ac47-4628-8961-09ec10e60911
     m_ActionName: UI1/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2585017843928362434}
+        m_TargetAssemblyTypeName: GunHandler, Assembly-CSharp
+        m_MethodName: LaserPointer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 779d9006-35b3-4f95-afe5-785b1381e2f5
     m_ActionName: Player/Laser Pointer[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0

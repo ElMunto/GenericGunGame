@@ -82,7 +82,6 @@ Transform:
   - {fileID: 4847407474031006944}
   - {fileID: 6414268375702379498}
   - {fileID: 3309569837375654003}
-  - {fileID: 7355415513263017034}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4971947199497022943
@@ -230,55 +229,6 @@ MonoBehaviour:
   boxCollider: {fileID: 2891297819052999155}
   dialogueRunner: {fileID: 0}
   slowModeDialogueCalled: 0
---- !u!1 &6523686293973273900
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7355415513263017034}
-  - component: {fileID: 6319789428444738871}
-  m_Layer: 0
-  m_Name: TimeManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7355415513263017034
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6523686293973273900}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8018042864475494781}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6319789428444738871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6523686293973273900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ac0dd079bcbd964bb0cd86f233421c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 0}
-  cooldownTime: 5
-  slowDownFactor: 0.05
-  slowdownLength: 3
-  refillSpeed: 0.5
 --- !u!1 &7008987367182043905
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +279,7 @@ MonoBehaviour:
   _gunReload: {fileID: 11400000, guid: 1d6c689fcd7a248418f730c1a6ce2b1a, type: 2}
   _uiHighlight: {fileID: 11400000, guid: 299edf55a438a9f488d74889e444ad2a, type: 2}
   _uiClick: {fileID: 0}
+  _mainMenuMusic: {fileID: 0}
 --- !u!1 &8761424256329963944
 GameObject:
   m_ObjectHideFlags: 0
