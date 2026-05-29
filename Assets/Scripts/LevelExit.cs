@@ -62,6 +62,21 @@ public class LevelExit : MonoBehaviour
             scoreBoard.SetTime(formattedTime);
             scoreBoard.SetBottlesSmashed(smashed, total);
         }
+
+        // Update best stats for this level
+        if (timer != null && total > 0)
+        {
+            int levelNumber = 1; // Default to 1 if parsing fails
+            string sceneName = SceneManager.GetActiveScene().name;
+            // Try to parse level number from scene name, e.g., "Level 1"
+            var parts = sceneName.Split(' ');
+            if (parts.Length > 1 && int.TryParse(parts[1], out int parsedLevel))
+            {
+                levelNumber = parsedLevel;
+            }
+            float elapsed = GetElapsedTime(timer);
+            MainMenu.UpdateLevelStats(levelNumber, elapsed, smashed);
+        }
     }
 
     void UnlockNewLevel()

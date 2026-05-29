@@ -2886,7 +2886,7 @@ GameObject:
   - component: {fileID: 503305290}
   - component: {fileID: 503305289}
   m_Layer: 5
-  m_Name: Bottle
+  m_Name: Lv1_Bottle_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3531,7 +3531,7 @@ GameObject:
   - component: {fileID: 681761547}
   - component: {fileID: 681761546}
   m_Layer: 5
-  m_Name: Bottle
+  m_Name: Lv1_Bottle_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4446,7 +4446,7 @@ GameObject:
   - component: {fileID: 853369662}
   - component: {fileID: 853369661}
   m_Layer: 5
-  m_Name: Time
+  m_Name: Lv1_Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5986,6 +5986,58 @@ MonoBehaviour:
   - {fileID: 1936318639}
   - {fileID: 1720814608}
   - {fileID: 1515122787}
+  levelTimeTexts:
+  - {fileID: 853369661}
+  - {fileID: 216447288}
+  - {fileID: 2035803890}
+  - {fileID: 2023267731}
+  - {fileID: 955784865}
+  - {fileID: 1705285582}
+  - {fileID: 629416460}
+  - {fileID: 246440390}
+  - {fileID: 2019298419}
+  - {fileID: 621250820}
+  levelBottleImages:
+  - bottleImages:
+    - {fileID: 681761546}
+    - {fileID: 1570699035}
+    - {fileID: 503305289}
+  - bottleImages:
+    - {fileID: 220064381}
+    - {fileID: 1744276992}
+    - {fileID: 1112676444}
+  - bottleImages:
+    - {fileID: 1321214688}
+    - {fileID: 1550827241}
+    - {fileID: 672681629}
+  - bottleImages:
+    - {fileID: 859296171}
+    - {fileID: 1433894189}
+    - {fileID: 1854017495}
+  - bottleImages:
+    - {fileID: 222402125}
+    - {fileID: 775755590}
+    - {fileID: 914385634}
+  - bottleImages:
+    - {fileID: 1836909980}
+    - {fileID: 1962087692}
+    - {fileID: 700685276}
+  - bottleImages:
+    - {fileID: 1445307375}
+    - {fileID: 182472477}
+    - {fileID: 1902164287}
+  - bottleImages:
+    - {fileID: 635912168}
+    - {fileID: 1906989797}
+    - {fileID: 75260701}
+  - bottleImages:
+    - {fileID: 395661388}
+    - {fileID: 1362785020}
+    - {fileID: 826836178}
+  - bottleImages:
+    - {fileID: 403975131}
+    - {fileID: 1578592832}
+    - {fileID: 757360136}
   _mainMenuMusic: {fileID: 11400000, guid: fa19d64dc20bd7b44bd557cb8d24f653, type: 2}
 --- !u!1001 &1029860119
 PrefabInstance:
@@ -6811,7 +6863,6 @@ GameObject:
   - component: {fileID: 1147961051}
   - component: {fileID: 1147961053}
   - component: {fileID: 1147961052}
-  - component: {fileID: 1147961054}
   m_Layer: 5
   m_Name: Level Select
   m_TagString: Untagged
@@ -6877,30 +6928,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147961050}
   m_CullTransparentMesh: 1
---- !u!114 &1147961054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147961050}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83eb04b639bd68a4b9a15ef55e225f0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 1092362505}
-  - {fileID: 22250388}
-  - {fileID: 996603262}
-  - {fileID: 834740171}
-  - {fileID: 177160681}
-  - {fileID: 943150116}
-  - {fileID: 336149019}
-  - {fileID: 1936318639}
-  - {fileID: 1720814608}
-  - {fileID: 1515122787}
-  _mainMenuMusic: {fileID: 0}
 --- !u!1 &1181462432
 GameObject:
   m_ObjectHideFlags: 0
@@ -9293,7 +9320,7 @@ GameObject:
   - component: {fileID: 1570699036}
   - component: {fileID: 1570699035}
   m_Layer: 5
-  m_Name: Bottle
+  m_Name: Lv1_Bottle_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
