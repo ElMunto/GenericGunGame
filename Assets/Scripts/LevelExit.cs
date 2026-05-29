@@ -94,8 +94,8 @@ public class LevelExit : MonoBehaviour
     {
         int minutes = Mathf.FloorToInt(elapsedTime / 60);
         int seconds = Mathf.FloorToInt(elapsedTime % 60);
-        int milliseconds = Mathf.FloorToInt((elapsedTime % 1) * 1000);
-        return string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliseconds);
+        int milliseconds = Mathf.FloorToInt((elapsedTime % 1) * 100);
+        return string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
     }
 
     // Helper to get smashed bottle count
