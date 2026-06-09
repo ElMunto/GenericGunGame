@@ -505,7 +505,7 @@ MonoBehaviour:
   _forceAmount: 600
   _maxUpAssist: 30
   _smokeLength: 0.5
-  _maxY: 20
+  _maxY: 200
   nudgePower: 0.5
   laserPointer: {fileID: 4132054215495075458}
   currentClip: 10
