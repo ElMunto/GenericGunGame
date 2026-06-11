@@ -190,7 +190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -71.3667, y: 69.38095}
+  m_AnchoredPosition: {x: -71.3667, y: 69.38086}
   m_SizeDelta: {x: 397.26672, y: 101.2381}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &18534536
@@ -4604,7 +4604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.4082031, y: -0.00012207031}
+  m_AnchoredPosition: {x: -1.4082031, y: 0}
   m_SizeDelta: {x: 47.8734, y: 50.6893}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &854792941
@@ -9927,7 +9927,7 @@ GameObject:
   - component: {fileID: 1708097588}
   - component: {fileID: 1708097587}
   m_Layer: 0
-  m_Name: Directional Light (1)
+  m_Name: LightningEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13107,6 +13107,14 @@ PrefabInstance:
     - target: {fileID: 8798779467532866646, guid: 7cc4911c420909d4e8a330b261bc8f7f, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843576114809344813, guid: 7cc4911c420909d4e8a330b261bc8f7f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -338.03003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843576114809344813, guid: 7cc4911c420909d4e8a330b261bc8f7f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -81.8689
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
