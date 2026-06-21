@@ -453,10 +453,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -768.0,
-            "y": -106.00000762939453,
-            "width": 129.0,
-            "height": 34.0
+            "x": -908.9999389648438,
+            "y": -123.0,
+            "width": 128.99993896484376,
+            "height": 33.99999237060547
         }
     },
     "m_Slots": [
@@ -489,10 +489,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1381.9998779296875,
-            "y": -53.99995803833008,
-            "width": 207.99998474121095,
-            "height": 313.9999694824219
+            "x": -1574.0,
+            "y": -188.0,
+            "width": 208.0,
+            "height": 312.0
         }
     },
     "m_Slots": [
@@ -1390,10 +1390,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -589.0000610351563,
-            "y": -106.00000762939453,
-            "width": 208.0,
-            "height": 437.0
+            "x": -727.0,
+            "y": -102.99999237060547,
+            "width": 208.00006103515626,
+            "height": 432.9999694824219
         }
     },
     "m_Slots": [
@@ -1431,7 +1431,7 @@
         "m_SerializableColors": []
     },
     "m_TextureType": 0,
-    "m_NormalMapSpace": 0,
+    "m_NormalMapSpace": 1,
     "m_EnableGlobalMipBias": true,
     "m_MipSamplingMode": 0
 }

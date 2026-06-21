@@ -158232,6 +158232,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lighting/GameVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 8731798425936137230, guid: 6dfc2096dea78c34f9d2869f60931db8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731798425936137230, guid: 6dfc2096dea78c34f9d2869f60931db8, type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: d61b197ce717b2b4797c5b899a2bd483, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
