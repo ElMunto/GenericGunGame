@@ -8,61 +8,28 @@ using Unity.Mathematics;
 
 public class Fader : MonoBehaviour
 {
-    [SerializeField] private float _fadeTime = 1.5f;
-    [SerializeField] private GameObject _playerPrefab;
-    [SerializeField] private Transform _respawnPoint;
+    [SerializeField] private float _fadeDuration = 1.5f;
+    [SerializeField] private CanvasGroup _canvasGroup;
 
-
-    [SerializeField ]private Image _image;
-    private CinemachineVirtualCamera _virtualCam;
-
-    private void Start()
+    public void FadeIn()
     {
         
     }
 
-    private void Awake()
+    public void FadeOut()
     {
-        //StartCoroutine(FadeIn()); Fad in on scene load
-        //_image = GetComponent<Image>();
-        //_virtualCam = FindFirstObjectByType<CinemachineVirtualCamera>();
+        
     }
 
-    public void FadeInAndOut()
+    private IEnumerator FadeCanvasGroup(CanvasGroup cg, float start, float end, float duration)
     {
-        StartCoroutine(FadeIn());
-    }
-
-    private IEnumerator FadeIn()
-    {
-        yield return StartCoroutine(FadeRoutine(1f));
-        //Respawn();
-        StartCoroutine(FadeRoutine(0f));
-    }
-
-
-    private IEnumerator FadeRoutine(float targetAlpha)
-    {
-        float elapsedTime = 0f;
-        float startValue = _image.color.a;
-
-        while (elapsedTime < _fadeTime)
+        float elapsedTime = 0.0f;
+        while (elapsedTime < _fadeDuration)
         {
             elapsedTime += Time.deltaTime;
-            float newAlpha = Mathf.Lerp(startValue, targetAlpha, elapsedTime / _fadeTime);
-            _image.color = new Color(_image.color.r, _image.color.b, _image.color.g, newAlpha);
+            cg.alpha = Mathf.Lerp(start, end, elapsedTime / duration);
             yield return null;
         }
-
-        _image.color = new Color(_image.color.r, _image.color.b, _image.color.g, targetAlpha);
+        cg.alpha = end;
     }
-
-    private void Respawn()
-    {
-
-        Transform player = Instantiate(_playerPrefab, _respawnPoint.position, Quaternion.identity).transform;
-        //_virtualCam.Follow = player;
-    }
-
-
 }
