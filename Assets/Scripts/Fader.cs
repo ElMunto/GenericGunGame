@@ -13,12 +13,12 @@ public class Fader : MonoBehaviour
 
     public void FadeIn()
     {
-        
+        StartCoroutine (FadeCanvasGroup(_canvasGroup, _canvasGroup.alpha, 0, _fadeDuration));
     }
 
     public void FadeOut()
     {
-        
+         StartCoroutine (FadeCanvasGroup(_canvasGroup, _canvasGroup.alpha, 1, _fadeDuration));
     }
 
     private IEnumerator FadeCanvasGroup(CanvasGroup cg, float start, float end, float duration)
