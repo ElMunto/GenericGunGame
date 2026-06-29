@@ -11,6 +11,8 @@ public class Fader : MonoBehaviour
     [SerializeField] private float _fadeDuration = 1.5f;
     [SerializeField] private CanvasGroup _canvasGroup;
 
+    public float FadeDuration => _fadeDuration;
+
     public void FadeIn()
     {
         StartCoroutine (FadeCanvasGroup(_canvasGroup, _canvasGroup.alpha, 0, _fadeDuration));
@@ -24,7 +26,7 @@ public class Fader : MonoBehaviour
     private IEnumerator FadeCanvasGroup(CanvasGroup cg, float start, float end, float duration)
     {
         float elapsedTime = 0.0f;
-        while (elapsedTime < _fadeDuration)
+        while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
             cg.alpha = Mathf.Lerp(start, end, elapsedTime / duration);

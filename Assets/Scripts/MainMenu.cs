@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
 
     [Header("Music")]
     [SerializeField] private SoundSO _mainMenuMusic;
+    [SerializeField] private Fader _fader;
     private AudioManager _audioManager;
 
     private void Start()
@@ -101,7 +102,22 @@ public class MainMenu : MonoBehaviour
         {
             _audioManager.StopMusic();
         }
+
         string levelName = "Level " + levelId;
+        if (_fader != null && _fader.isActiveAndEnabled)
+        {
+            _fader.FadeOut();
+            _fader.StartCoroutine(LoadSceneAfterFade(levelName));
+        }
+        else
+        {
+            SceneManager.LoadScene(levelName);
+        }
+    }
+
+    private IEnumerator LoadSceneAfterFade(string levelName)
+    {
+        yield return new WaitForSeconds(_fader != null ? _fader.FadeDuration : 0f);
         SceneManager.LoadScene(levelName);
     }
 
