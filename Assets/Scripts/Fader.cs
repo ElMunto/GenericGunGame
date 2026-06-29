@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,17 +14,17 @@ public class Fader : MonoBehaviour
 
     public float FadeDuration => _fadeDuration;
 
-    public void FadeIn()
+    public void FadeIn(Action onComplete = null)
     {
-        StartCoroutine (FadeCanvasGroup(_canvasGroup, _canvasGroup.alpha, 0, _fadeDuration));
+        StartCoroutine(FadeCanvasGroup(_canvasGroup, 1f, 0f, _fadeDuration, onComplete));
     }
 
-    public void FadeOut()
+    public void FadeOut(Action onComplete = null)
     {
-         StartCoroutine (FadeCanvasGroup(_canvasGroup, _canvasGroup.alpha, 1, _fadeDuration));
+         StartCoroutine(FadeCanvasGroup(_canvasGroup, _canvasGroup.alpha, 1f, _fadeDuration, onComplete));
     }
 
-    private IEnumerator FadeCanvasGroup(CanvasGroup cg, float start, float end, float duration)
+    private IEnumerator FadeCanvasGroup(CanvasGroup cg, float start, float end, float duration, Action onComplete = null)
     {
         float elapsedTime = 0.0f;
         while (elapsedTime < duration)
@@ -33,5 +34,6 @@ public class Fader : MonoBehaviour
             yield return null;
         }
         cg.alpha = end;
+        onComplete?.Invoke();
     }
 }
