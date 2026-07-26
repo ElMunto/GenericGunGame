@@ -158022,9 +158022,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 212029038}
+    - target: {fileID: 5709513561569293433, guid: 84d8a9574c93398468d7a575d0bb95a0, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5709513561569293435, guid: 84d8a9574c93398468d7a575d0bb95a0, type: 3}
       propertyPath: m_Name
       value: GameCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709513561569293438, guid: 84d8a9574c93398468d7a575d0bb95a0, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709513561569293438, guid: 84d8a9574c93398468d7a575d0bb95a0, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5709513561569293439, guid: 84d8a9574c93398468d7a575d0bb95a0, type: 3}
       propertyPath: m_Pivot.x
@@ -158056,6 +158068,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5709513561569293439, guid: 84d8a9574c93398468d7a575d0bb95a0, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709513561569293439, guid: 84d8a9574c93398468d7a575d0bb95a0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709513561569293439, guid: 84d8a9574c93398468d7a575d0bb95a0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709513561569293439, guid: 84d8a9574c93398468d7a575d0bb95a0, type: 3}
+      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5709513561569293439, guid: 84d8a9574c93398468d7a575d0bb95a0, type: 3}
@@ -158372,6 +158396,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lighting/GameVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 8562522806673650916, guid: 6dfc2096dea78c34f9d2869f60931db8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731798425606510024, guid: 6dfc2096dea78c34f9d2869f60931db8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731798425936137229, guid: 6dfc2096dea78c34f9d2869f60931db8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731798425936137230, guid: 6dfc2096dea78c34f9d2869f60931db8, type: 3}
+      propertyPath: weight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731798425936137230, guid: 6dfc2096dea78c34f9d2869f60931db8, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -158380,6 +158420,10 @@ PrefabInstance:
       propertyPath: sharedProfile
       value: 
       objectReference: {fileID: 11400000, guid: d61b197ce717b2b4797c5b899a2bd483, type: 2}
+    - target: {fileID: 8731798426837637762, guid: 6dfc2096dea78c34f9d2869f60931db8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
