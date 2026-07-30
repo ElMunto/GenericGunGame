@@ -157682,6 +157682,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun
       objectReference: {fileID: 0}
+    - target: {fileID: 7482595424902492713, guid: 1fcf7e509728faa4d9cfdefa6ccdf421, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8146855346624469592, guid: 1fcf7e509728faa4d9cfdefa6ccdf421, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
