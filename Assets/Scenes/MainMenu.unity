@@ -8353,9 +8353,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 663b10caaeb375f4c9f868407a184742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fader: {fileID: 0}
+  _fader: {fileID: 1487527744}
   _dialogueRunner: {fileID: 0}
   _startNodeName: Beep
+  _startDialogueOnLoad: 1
 --- !u!1 &1446815564
 GameObject:
   m_ObjectHideFlags: 0

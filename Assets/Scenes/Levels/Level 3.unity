@@ -2788,6 +2788,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 314798895, guid: 84d8a9574c93398468d7a575d0bb95a0, type: 3}
+      propertyPath: _startDialogueOnLoad
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 645679208, guid: 84d8a9574c93398468d7a575d0bb95a0, type: 3}
       propertyPath: gunHandler
       value: 

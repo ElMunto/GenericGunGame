@@ -4519,7 +4519,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3508095109146506573}
   - {fileID: 1777973521556993747}
   - {fileID: 4514340124888739142}
   - {fileID: 5709513560319545475}
@@ -4531,6 +4530,7 @@ RectTransform:
   - {fileID: 3477818574305074182}
   - {fileID: 7800195191887567043}
   - {fileID: 2880201590746226846}
+  - {fileID: 3508095109146506573}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4616,6 +4616,7 @@ MonoBehaviour:
   _fader: {fileID: 4440511496105247462}
   _dialogueRunner: {fileID: 372682041662049488}
   _startNodeName: Beep
+  _startDialogueOnLoad: 1
 --- !u!114 &181521956470495582
 MonoBehaviour:
   m_ObjectHideFlags: 0

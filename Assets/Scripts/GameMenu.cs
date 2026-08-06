@@ -11,12 +11,19 @@ public class GameMenu : MonoBehaviour
     [SerializeField] private Fader _fader;
     [SerializeField] private DialogueRunner _dialogueRunner;
     [SerializeField] private string _startNodeName = "Beep";
+    [SerializeField] private bool _startDialogueOnLoad = true;
 
     private int nextSceneToLoad;
 
     private void Start()
     {
         nextSceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
+
+        if (!_startDialogueOnLoad)
+        {
+            return;
+        }
+
         if (_fader != null)
         {
             _fader.FadeIn(() =>
