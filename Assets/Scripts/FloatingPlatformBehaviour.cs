@@ -8,12 +8,15 @@ public class FloatingPlatformBehaviour : MonoBehaviour
     public Transform[] waypoints;
     public bool loop = true;
     public float speed = 2f;
+    public bool smoothMovement = false;
+    public float smoothTime = 0.3f;
 
     [Header("Gizmos")]
     public Color gizmoColor = Color.cyan;
     public float gizmoRadius = 0.1f;
 
     private int currentIndex = 0;
+    private Vector3 currentVelocity = Vector3.zero;
 
     private void Update()
     {
@@ -28,6 +31,7 @@ public class FloatingPlatformBehaviour : MonoBehaviour
         if (moveDirection.sqrMagnitude <= step * step)
         {
             transform.position = targetPosition;
+            currentVelocity = Vector3.zero;
             currentIndex++;
             if (currentIndex >= waypoints.Length)
             {
@@ -36,7 +40,15 @@ public class FloatingPlatformBehaviour : MonoBehaviour
         }
         else
         {
-            transform.position += moveDirection.normalized * step;
+            if (smoothMovement)
+            {
+                transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, smoothTime, speed, Time.deltaTime);
+            }
+            else
+            {
+                currentVelocity = Vector3.zero;
+                transform.position += moveDirection.normalized * step;
+            }
         }
     }
 
