@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class FloatingPlatformBehaviour : MonoBehaviour
 {
     [Header("Track")]
@@ -17,20 +18,35 @@ public class FloatingPlatformBehaviour : MonoBehaviour
 
     private int currentIndex = 0;
     private Vector3 currentVelocity = Vector3.zero;
+    private Rigidbody platformRigidbody;
 
-    private void Update()
+    private void Awake()
+    {
+        platformRigidbody = GetComponent<Rigidbody>();
+        if (platformRigidbody != null)
+        {
+            platformRigidbody.isKinematic = true;
+            platformRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
+            platformRigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+        }
+    }
+
+    private void FixedUpdate()
     {
         if (waypoints == null || waypoints.Length == 0)
             return;
 
-        Transform target = waypoints[currentIndex];
-        Vector3 targetPosition = target.position;
-        Vector3 moveDirection = (targetPosition - transform.position);
-        float step = speed * Time.deltaTime;
+        if (waypoints[currentIndex] == null)
+            return;
+
+        Vector3 currentPosition = platformRigidbody != null ? platformRigidbody.position : transform.position;
+        Vector3 targetPosition = waypoints[currentIndex].position;
+        Vector3 moveDirection = targetPosition - currentPosition;
+        float step = speed * Time.fixedDeltaTime;
 
         if (moveDirection.sqrMagnitude <= step * step)
         {
-            transform.position = targetPosition;
+            MovePlatform(targetPosition);
             currentVelocity = Vector3.zero;
             currentIndex++;
             if (currentIndex >= waypoints.Length)
@@ -40,16 +56,20 @@ public class FloatingPlatformBehaviour : MonoBehaviour
         }
         else
         {
-            if (smoothMovement)
-            {
-                transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, smoothTime, speed, Time.deltaTime);
-            }
-            else
-            {
-                currentVelocity = Vector3.zero;
-                transform.position += moveDirection.normalized * step;
-            }
+            Vector3 nextPosition = smoothMovement
+                ? Vector3.SmoothDamp(currentPosition, targetPosition, ref currentVelocity, smoothTime, speed, Time.fixedDeltaTime)
+                : currentPosition + moveDirection.normalized * step;
+
+            MovePlatform(nextPosition);
         }
+    }
+
+    private void MovePlatform(Vector3 position)
+    {
+        if (platformRigidbody != null)
+            platformRigidbody.MovePosition(position);
+        else
+            transform.position = position;
     }
 
     private void OnDrawGizmos()
