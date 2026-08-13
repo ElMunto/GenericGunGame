@@ -70,6 +70,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0531c91c18e7ba4dad5c238b02f85ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueRunner: {fileID: 0}
+  startReloadDialogue: 0
+  ammoAmount: 10
 --- !u!114 &2387640802223572057
 MonoBehaviour:
   m_ObjectHideFlags: 0
