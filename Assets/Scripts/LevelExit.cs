@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 using TMPro;
@@ -8,6 +9,10 @@ using TMPro;
 public class LevelExit : MonoBehaviour
 {
     public GameObject LevelCompletePanel;
+
+    [SerializeField] private ParticleSystem[] confettiEffects;
+
+    private bool hasTriggered;
 
     // Reference to the score board
     private LevelCompleteScoreBoard scoreBoard;
@@ -25,7 +30,17 @@ public class LevelExit : MonoBehaviour
     //Check to see if been hit by bullet
     private void OnTriggerEnter(Collider player)
     {
+        if (hasTriggered || !player.CompareTag("Player"))
+            return;
+
+        hasTriggered = true;
+
+        FreezePlayerControls(player);
+
         Debug.Log("Player has Exit Level");
+
+        PlayConfettiEffects();
+
         //play Exit Animation
         //play Exit Sound/Music
         //either pause game or disable controls / warp out gun/player
@@ -76,6 +91,32 @@ public class LevelExit : MonoBehaviour
             }
             float elapsed = GetElapsedTime(timer);
             MainMenu.UpdateLevelStats(levelNumber, elapsed, smashed);
+        }
+    }
+
+    private void FreezePlayerControls(Collider player)
+    {
+        var playerInput = player.GetComponentInParent<PlayerInput>();
+        if (playerInput != null)
+            playerInput.enabled = false;
+
+        var gunHandler = player.GetComponentInParent<GunHandler>();
+        if (gunHandler != null)
+        {
+            gunHandler.IsInDialogue = true;
+            gunHandler.IsPaused = true;
+        }
+    }
+
+    private void PlayConfettiEffects()
+    {
+        if (confettiEffects == null)
+            return;
+
+        foreach (var confetti in confettiEffects)
+        {
+            if (confetti != null)
+                confetti.Play();
         }
     }
 
