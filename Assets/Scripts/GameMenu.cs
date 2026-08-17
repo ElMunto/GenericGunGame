@@ -19,28 +19,36 @@ public class GameMenu : MonoBehaviour
     {
         nextSceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
 
-        if (!_startDialogueOnLoad)
-        {
-            return;
-        }
-
         if (_fader != null)
         {
             _fader.FadeIn(() =>
             {
-                if (_dialogueRunner != null)
+                if (_startDialogueOnLoad)
                 {
-                    _dialogueRunner.StartDialogue(_startNodeName);
-                }
-                else
-                {
-                    Debug.LogWarning("GameMenu Start: dialogue runner reference is missing");
+                    if (_dialogueRunner != null)
+                    {
+                        _dialogueRunner.StartDialogue(_startNodeName);
+                    }
+                    else
+                    {
+                        Debug.LogWarning("GameMenu Start: dialogue runner reference is missing");
+                    }
                 }
             });
+
+            return;
         }
-        else if (_dialogueRunner != null)
+
+        if (_startDialogueOnLoad)
         {
-            _dialogueRunner.StartDialogue(_startNodeName);
+            if (_dialogueRunner != null)
+            {
+                _dialogueRunner.StartDialogue(_startNodeName);
+            }
+            else
+            {
+                Debug.LogWarning("GameMenu Start: dialogue runner reference is missing");
+            }
         }
     }
 

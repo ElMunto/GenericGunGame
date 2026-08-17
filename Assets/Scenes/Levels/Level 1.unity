@@ -157841,7 +157841,7 @@ PrefabInstance:
       objectReference: {fileID: 1369068834}
     - target: {fileID: 314798895, guid: 84d8a9574c93398468d7a575d0bb95a0, type: 3}
       propertyPath: _startDialogueOnLoad
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 645679208, guid: 84d8a9574c93398468d7a575d0bb95a0, type: 3}
       propertyPath: gunHandler
