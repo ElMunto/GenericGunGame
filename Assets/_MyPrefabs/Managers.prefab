@@ -31,8 +31,8 @@ Transform:
   m_Children:
   - {fileID: 5867908070652503341}
   - {fileID: 4847407474031006944}
-  - {fileID: 6414268375702379498}
   - {fileID: 3309569837375654003}
+  - {fileID: 3764702529245667604}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4971947199497022943
@@ -111,7 +111,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!1 &6102632520681729931
+--- !u!1 &6432140420411888579
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,67 +119,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6414268375702379498}
-  - component: {fileID: 2891297819052999155}
-  - component: {fileID: 5584926046576114359}
+  - component: {fileID: 3764702529245667604}
+  - component: {fileID: 5321095034338269774}
   m_Layer: 0
-  m_Name: DialogTrigger
+  m_Name: BackgroundMover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6414268375702379498
+--- !u!4 &3764702529245667604
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6102632520681729931}
+  m_GameObject: {fileID: 6432140420411888579}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 14, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8018042864475494781}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2891297819052999155
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6102632520681729931}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 21.275364, y: 1, z: 5.4396915}
-  m_Center: {x: 0.26752853, y: 0, z: 0.59589434}
---- !u!114 &5584926046576114359
+--- !u!114 &5321095034338269774
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6102632520681729931}
+  m_GameObject: {fileID: 6432140420411888579}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43e249188a06b2d4ba53b299dbc0fa96, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b869f89c2a0d824facfc1dd3010a88b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxCollider: {fileID: 2891297819052999155}
-  dialogueRunner: {fileID: 0}
-  slowModeDialogueCalled: 0
+  cameraTransform: {fileID: 0}
+  useMainCamera: 1
+  layerNear: {fileID: 0}
+  layerFar: {fileID: 0}
+  nearParallax: {x: 0.25, y: 0}
+  farParallax: {x: 0.15, y: 0}
+  smooth: 1
+  smoothSpeed: 12
 --- !u!1 &7008987367182043905
 GameObject:
   m_ObjectHideFlags: 0
