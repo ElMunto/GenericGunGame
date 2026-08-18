@@ -4616,7 +4616,7 @@ MonoBehaviour:
   _fader: {fileID: 4440511496105247462}
   _dialogueRunner: {fileID: 372682041662049488}
   _startNodeName: Beep
-  _startDialogueOnLoad: 1
+  _startDialogueOnLoad: 0
 --- !u!114 &181521956470495582
 MonoBehaviour:
   m_ObjectHideFlags: 0
